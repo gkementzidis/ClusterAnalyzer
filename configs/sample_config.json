@@ -1,0 +1,18 @@
+{
+  "name": "Processing simulation data for clustering analysis",
+  "intermolecular_bond_types": [15, 16],
+  "paths": {
+    "data_dir": "./data/simulation_100825/output_data/",
+    "output_dir": "./data/simulation_100825/"
+  },
+  "filenames": {
+    "output": "cluster_analysis_results.json"
+  },
+  "metrics": {
+    "metrics_to_compute": ["avg_cluster_size", "avg_diameter"],
+    "percentile_threshold": 20
+  },
+  "extra": {
+    "exclude_beads_from_diameter": [1, 2, 4, 5, 8, 15]
+  }
+}
