@@ -10,12 +10,19 @@ I work with multiscale modeling. In particular, I use Coarse Graining (CG) to si
 
 Fibrin monomers form clusters, protofibrils and then laterally aggregate into oligomers. Visualization were done in OVITO.
 
+To identify clusters, the code uses concepts from **graph theory**. In particular, vertices represent molecules, while edges represent intermolecular bonds. The implementation makes use of **depth-first search (DFS)** to identify connected components, their size, and the corresponding average diameter.
+
 ## Goal:
 I want to be able to analyze the results of these simulations, in particular with regards to clustering and dynamic bond formation. This repository is designed to read a directory of files containing snapshot information about bonds and CG bead coordinates to compute quantities like:
 - Cluster sizes
 - Cluster diameter
 - Density
-As I update this repository, I want to be able to embed more polymerization-related metrics, and hopefully a friendier interface. Also, I would like to incorporate a faster implementation using multithreading.
+*As I update this repository, I want to be able to embed more polymerization-related metrics, and hopefully a friendier interface. Also, I would like to incorporate a faster implementation using multithreading.*
+
+<p align="center">
+  <img src="example.png" width="500" />
+</p>
+An examples of a possible output -- visualizing the results of our cluster analysis.
 
 ## Assumptions:
 - Access to `.data` files -- we present a quick method to transform `.restart` files to `.data`.
@@ -37,4 +44,4 @@ python clustering.py
 ```
 Make sure to edit the `sample_config.json` file in the `./configs` directory, to modify the input/output path and filenames, as well as some other parameters. Then you can run the `analyze_clusters.ipynb` notebook to create the plots.
 
-More updates to come, this is a work in progress...
+*More updates to come, this is a work in progress...*
